@@ -1,6 +1,6 @@
+// export default HeaderNavigation;
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'
+import { Navbar, NavbarBrand } from 'reactstrap';
 import logo from './bcbilogo.svg'
 
 
@@ -8,24 +8,10 @@ class HeaderNavigation extends Component{
 
   render(){
     return(
-      <Navbar fixedTop>
-      <Navbar.Header>
-      <LinkContainer to='/'>
-        <Navbar.Brand>
-        <a href="/">
+      <Navbar href="/">
+      <NavbarBrand>
         <img alt="" src={logo} />
-        </a>
-        </Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle />
-      </Navbar.Header>
-        <Navbar.Collapse>
-        <Nav>
-        <LinkContainer to='/search'>
-          <NavItem eventKey={1} >Database Search </NavItem>
-        </LinkContainer>
-        </Nav>
-        </Navbar.Collapse>
+      </NavbarBrand>
       </Navbar>
     );
   }

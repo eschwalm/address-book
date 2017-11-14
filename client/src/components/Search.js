@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import {Form, FormGroup, FormControl, Button} from 'react-bootstrap'
+import {Form, FormGroup, Input, Button} from 'reactstrap'
 import { connect } from 'react-redux'
-import {Grid, Row, Col} from 'react-bootstrap'
+import {Container, Row} from 'reactstrap'
 
 
 class Search extends Component {
@@ -42,32 +42,22 @@ class Search extends Component {
 
   renderTitleAndForm(){
     let titleAndForm = (
-      <Grid>
-      <Row className="show-grid">
-        <Col smOffset={1} sm={11}> <h2> Filter Authors Database by First Name</h2></Col>
+      <Container>
+      <Row className="show-grid top10">
+        <h2> Filter Authors Database by First Name</h2>
       </Row>
-      <Row className="show-grid">
-        <Col md={4}>
-          <Form horizontal onSubmit={this.onSubmit}>
-          <FormGroup controlId="formInlineEmail">
-             <Col   smOffset={3} sm={4}>
-              <FormControl
-               ref="searchInput"
-               type="text"
-               placeholder="First Name"
-               onChange={this.onChange}
-               />
-             </Col>
-             <Col  sm={2}>
-               <Button type="button" onClick={ this.onClear }>
-                 Clear
-               </Button>
-             </Col>
+      <Row className="show-grid top10">
+          <Form inline onSubmit={this.onSubmit}>
+          <FormGroup >
+              <Input type="search" name="search" id="searchInput" placeholder="First Name" onChange={this.onChange} />
           </FormGroup>
+          {' '}
+          <Button className ="btn-ll5" onClick={ this.onClear }>
+                 Clear
+          </Button>
           </Form>
-        </Col>
       </Row>
-      </Grid>
+      </Container>
     );
 
     return titleAndForm;
@@ -75,40 +65,28 @@ class Search extends Component {
 
   renderFullForm(){
     let fullForm = (
-      <Grid>
-      <Row className="show-grid">
-        <Col smOffset={1} sm={11}> <h2> Filter Authors Database by First Name</h2></Col>
+      <Container>
+      <Row className="show-grid top10">
+        <h2> Filter Authors Database by First Name</h2>
       </Row>
-      <Row className="show-grid">
-        <Col md={4}>
-          <Form horizontal onSubmit={this.onSubmit}>
-          <FormGroup controlId="formInlineEmail">
-             <Col   smOffset={3} sm={4}>
-              <FormControl
-              type="text"
-              placeholder="First Name"
-              onChange={this.onChange}
-              />
-             </Col>
-             <Col  sm={2}>
-               <Button type="button" onClick={ this.onClear }>
-                 Clear
-               </Button>
-             </Col>
+      <Row className="show-grid top10">
+          <Form inline onSubmit={this.onSubmit}>
+          <FormGroup >
+              <Input type="search" name="search" id="searchInput" placeholder="First Name" onChange={this.onChange} />
           </FormGroup>
+          {' '}
+          <Button className ="btn-ll5" onClick={ this.onClear }>
+                 Clear
+          </Button>
           </Form>
-        </Col>
       </Row>
-      <Row className="top-buffer"/>
-      <Row className="show-grid">
-        <Col smOffset={1} sm={10}>
+      <Row className="show-grid top10">
         <BootstrapTable data={ this.props.searchData } search={ false }>
         <TableHeaderColumn dataField='first_name'>First Name</TableHeaderColumn>
         <TableHeaderColumn dataField='last_name'isKey={ true } >Last Name</TableHeaderColumn>
         </BootstrapTable>
-        </Col>
       </Row>
-      </Grid>
+      </Container>
     );
     return fullForm
   }
