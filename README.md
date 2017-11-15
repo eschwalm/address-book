@@ -2,13 +2,13 @@
 
 This is a fully working canvas for a React Web App with the following characteristics:
 
-* Based on create-react-app
+* Based on [create-react-app](https://github.com/facebookincubator/create-react-app)
 * Node/Express backend
 * MySQL connection
-* Redux pattern for handling application-state
-* ReactRouter for handling routes
-* ReactBootstrap for UI
-* Redux-Saga for asynchronous tasks
+* [Redux](https://redux.js.org) pattern for handling application-state
+* [ReactRouter](https://github.com/ReactTraining/react-router) for handling routes
+* [Reactstrap](https://reactstrap.github.io) for UI
+* [Redux-Saga](https://github.com/redux-saga/redux-saga) for asynchronous tasks
 
 <p align="center">
 <img src="https://github.com/bcbi/Canvas-React-Node-MySQL/blob/master/screen-shot.png" width="350">
