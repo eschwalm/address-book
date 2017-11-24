@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 const host = "localhost"
 const user = "root"
 const pswd = ""
-const dbname = "books"
+const dbname = "contacts"
 
 // config db ====================================
 const pool = mysql.createPool({
@@ -35,7 +35,7 @@ const COLUMNS = [
   'first_name'
 ];
 
-app.get('/api/books', (req, res) => {
+app.get('/api/contacts', (req, res) => {
 
   const firstName = req.query.firstName;
 
