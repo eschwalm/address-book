@@ -44,7 +44,7 @@ class Search extends Component {
     let titleAndForm = (
       <Container>
       <Row className="show-grid top10">
-        <h2> Filter Authors Database by First Name</h2>
+        <h2> Filter Contacts by First Name</h2>
       </Row>
       <Row className="show-grid top10">
           <Form inline onSubmit={this.onSubmit}>
@@ -67,7 +67,7 @@ class Search extends Component {
     let fullForm = (
       <Container>
       <Row className="show-grid top10">
-        <h2> Filter Authors Database by First Name</h2>
+        <h2> Filter Contacts by First Name</h2>
       </Row>
       <Row className="show-grid top10">
           <Form inline onSubmit={this.onSubmit}>
