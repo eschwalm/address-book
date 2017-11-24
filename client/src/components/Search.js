@@ -84,6 +84,10 @@ class Search extends Component {
         <BootstrapTable data={ this.props.searchData } search={ false }>
         <TableHeaderColumn dataField='first_name'>First Name</TableHeaderColumn>
         <TableHeaderColumn dataField='last_name'isKey={ true } >Last Name</TableHeaderColumn>
+        <TableHeaderColumn dataField='street_address'>Street Address</TableHeaderColumn>
+        <TableHeaderColumn dataField='city'>City</TableHeaderColumn>
+        <TableHeaderColumn dataField='state'>State</TableHeaderColumn>
+        <TableHeaderColumn dataField='zip'>Zip</TableHeaderColumn>
         </BootstrapTable>
       </Row>
       </Container>

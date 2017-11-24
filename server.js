@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const host = "localhost"
 const user = "root"
-const pswd = ""
+const pswd = "password"
 const dbname = "contacts"
 
 // config db ====================================
@@ -31,8 +31,12 @@ const pool = mysql.createPool({
 });
 
 const COLUMNS = [
+  'first_name',
   'last_name',
-  'first_name'
+  'street_address',
+  'city',
+  'state',
+  'zip'
 ];
 
 app.get('/api/contacts', (req, res) => {
@@ -48,9 +52,9 @@ app.get('/api/contacts', (req, res) => {
 
   let queryString = ``;
   if(firstName=="*"){
-    queryString = `SELECT * from authors`
+    queryString = `SELECT * from people`
   }else{
-     queryString = `SELECT * from authors WHERE first_name REGEXP '^${firstName}'`
+     queryString = `SELECT * from people WHERE first_name REGEXP '^${firstName}'`
   }
 
   pool.query(queryString,
