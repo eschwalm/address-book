@@ -4,7 +4,11 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import {Form, FormGroup, Input, Button} from 'reactstrap'
 import { connect } from 'react-redux'
 import {Container, Row} from 'reactstrap'
+import EditModal from './edit.js'
 
+const cellEdit = {
+  mode: 'dbclick'
+}
 
 class Search extends Component {
 
@@ -16,8 +20,8 @@ class Search extends Component {
     this.onSubmit = this.onSubmit.bind(this)
 
   }
-  onChange(e)
-  {
+  
+  onChange(e) {
     if(e.target.value ===""){
       this.props.fetchData({firstName: "*"})
     }
@@ -26,18 +30,22 @@ class Search extends Component {
     }
   }
 
-  onClear(e)
-  {
+  onClear(e) {
     let searchInput = ReactDOM.findDOMNode(this.refs.searchInput)
     searchInput.value=""
     this.props.fetchData({firstName: "*"})
 
   }
 
-  onSubmit(e)
-  {
+  onSubmit(e) {
     //prevents full page reload
     e.preventDefault();
+  }
+  
+  toggleModal(data) {
+    return (
+      <EditModal data={data}/>
+    )
   }
 
   renderTitleAndForm(){
@@ -81,14 +89,22 @@ class Search extends Component {
           </Form>
       </Row>
       <Row className="show-grid top10">
-        <BootstrapTable data={ this.props.searchData } search={ false }>
-        <TableHeaderColumn dataField='first_name'>First Name</TableHeaderColumn>
-        <TableHeaderColumn dataField='last_name'isKey={ true } >Last Name</TableHeaderColumn>
+        <BootstrapTable 
+          data={ this.props.searchData } 
+          keyField='id'
+          search={ false } 
+          cellEdit={ cellEdit } 
+          striped 
+          insertRow 
+          deleteRow
+          >
+        <TableHeaderColumn dataField='first_name' >First Name</TableHeaderColumn>
+        <TableHeaderColumn dataField='last_name' >Last Name</TableHeaderColumn>
         <TableHeaderColumn dataField='street_address'>Street Address</TableHeaderColumn>
-        <TableHeaderColumn dataField='city'>City</TableHeaderColumn>
-        <TableHeaderColumn dataField='state'>State</TableHeaderColumn>
-        <TableHeaderColumn dataField='zip'>Zip</TableHeaderColumn>
-        </BootstrapTable>
+        <TableHeaderColumn dataField='city' >City</TableHeaderColumn>
+        <TableHeaderColumn dataField='state' >State</TableHeaderColumn>
+        <TableHeaderColumn dataField='zip' >Zip</TableHeaderColumn>
+        </BootstrapTable>        
       </Row>
       </Container>
     );
