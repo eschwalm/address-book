@@ -13,7 +13,7 @@ class App extends Component {
            <div className='App'>                
                 <div>
                     <Jumbotron>
-                        <h1> Simple Address Book App </h1>
+                        <h1> Simple Address Book </h1>
                     </Jumbotron>
                 </div>
                 <div>
